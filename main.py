@@ -6,7 +6,7 @@ from itertools import permutations
 Molecules Assessment
 """
 
-_author_ = "bomazani, Stew, with mob-coding assistance"
+_author_ = "bomazani, davidstewy, with mob-coding assistance"
 
 
 molecules_to_check = """CDBADCBBEFEF
@@ -37,7 +37,7 @@ Q"""
 
 
 def grab_molecule(molecules_to_split):
-    """Splits given list of strings into list of list with 4 strings each"""
+    """Splits given string into list of list with 4 strings each"""
     molecules = []
     molecules_to_split = molecules_to_split.split('\n')
     while molecules_to_split:
