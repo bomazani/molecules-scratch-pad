@@ -88,12 +88,12 @@ def main():
                 break
             for molecule_var in molecules_variations:
                 if best_fit(w, h, *molecule_var):
-                    print 'Tested Molecule: {}'.format(molecule_strings)
+                    # print 'Tested Molecule: {}'.format(molecule_strings)
                     print(w * h)
                     answer = 1
                     break
         if answer == 0:
-            print 'Tested Molecule: {}'.format(molecule_strings)
+            # print 'Tested Molecule: {}'.format(molecule_strings)
             print 0
 
 
