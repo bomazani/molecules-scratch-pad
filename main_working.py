@@ -6,43 +6,30 @@ from itertools import permutations
 Molecules Assessment
 """
 
-_author_ = "bomazani, davidstewy, with mob-coding assistance"
+_author_ = "bomazani, Stew, with mob-coding assistance"
 
 
-molecules_to_check = """CDBADCBBEFEF
-DACCBADAFEAB
-EFBDCAADBDCD
-ABCDABCDABCD
-DACCBADAFEAB
-EFBDCAADBDCD
-ABCDABCDABCD
-CDBADCBBEFEF
-ABABABABABAB
-CDCDCDCDCDCD
-EEEEEEEEEEEE
-FFFFFFFFFFFF
-ABAAAAAAAABA
-CBCCCCCCCCBC
-DBDDDDDDDDBD
-EBEEEEEEEEBE
-ABBBBBBBBBBA
-ACCCCCCCCCCA
-ADDDDDDDDDDA
-AEEEEEEEEEEA
-BBBABBBABBBB
-CCACCCACCCCC
-DDDDADDADDDD
-EEAEEAEEEEEE
-Q"""
+molecules_to_check = ['CDBADCBBEFEF', 'DACCBADAFEAB',
+                      'EFBDCAADBDCD', 'ABCDABCDABCD',
+                      'DACCBADAFEAB', 'EFBDCAADBDCD',
+                      'ABCDABCDABCD', 'CDBADCBBEFEF',
+                      'ABABABABABAB', 'CDCDCDCDCDCD',
+                      'EEEEEEEEEEEE', 'FFFFFFFFFFFF',
+                      'ABAAAAAAAABA', 'CBCCCCCCCCBC',
+                      'DBDDDDDDDDBD', 'EBEEEEEEEEBE',
+                      'ABBBBBBBBBBA', 'ACCCCCCCCCCA',
+                      'ADDDDDDDDDDA', 'AEEEEEEEEEEA',
+                      'BBBABBBABBBB', 'CCACCCACCCCC',
+                      'DDDDADDADDDD', 'EEAEEAEEEEEE',
+                      'Q']
 
 
-def grab_molecule(molecules_to_split):
-    """Splits given string into list of list with 4 strings each"""
+def grab_molecule(molecules_to_check):
+    """Splits given list of strings into list of list with 4 strings each"""
     molecules = []
-    molecules_to_split = molecules_to_split.split('\n')
-    while molecules_to_split:
-        molecules.append(molecules_to_split[:4])
-        molecules_to_split = molecules_to_split[4:]
+    while molecules_to_check:
+        molecules.append(molecules_to_check[:4])
+        molecules_to_check = molecules_to_check[4:]
     return molecules
 
 
@@ -78,7 +65,7 @@ def best_fit(w, h, across1, down1, across2, down2):
 
 def main():
     molecules_strings = grab_molecule(molecules_to_check)
-    rectangle_dimensions = rectangle_tuples(molecules_strings[0])
+    rectangle_dimensions = rectangle_tuples(molecules_to_check)
     for molecule_strings in molecules_strings:
         answer = 0
         """Builds a list of all possible string permutations for molecule"""
@@ -88,12 +75,12 @@ def main():
                 break
             for molecule_var in molecules_variations:
                 if best_fit(w, h, *molecule_var):
-                    print 'Tested Molecule: {}'.format(molecule_strings)
+                    print molecule_strings
                     print(w * h)
                     answer = 1
                     break
         if answer == 0:
-            print 'Tested Molecule: {}'.format(molecule_strings)
+            print molecule_strings
             print 0
 
 
