@@ -1,4 +1,4 @@
-# !/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from itertools import permutations
@@ -6,7 +6,7 @@ from itertools import permutations
 Molecules Assessment
 """
 
-_author_ = "bomazani, Stew, with mob-coding assistance"
+_author_ = "bomazani, davidstewy, with mob-coding assistance"
 
 
 molecules_to_check = ['CDBADCBBEFEF', 'DACCBADAFEAB',
@@ -22,6 +22,15 @@ molecules_to_check = ['CDBADCBBEFEF', 'DACCBADAFEAB',
                       'BBBABBBABBBB', 'CCACCCACCCCC',
                       'DDDDADDADDDD', 'EEAEEAEEEEEE',
                       'Q']
+
+def grab_molecule(molecules_to_split):
+
+    molecules = []
+    molecules_to_split = molecules_to_split.split('\n')
+    while molecules_to_split:
+        molecules.append(molecules_to_split[:4])
+        molecules_to_split = molecules_to_split[4:]
+    return molecules
 
 
 def grab_molecule(molecules_to_check):
